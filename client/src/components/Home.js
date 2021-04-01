@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 
-export class About extends Component {
+export class Home extends Component {
     render() {
         return (
             <div className = "mainContainer">
@@ -18,7 +18,7 @@ export class About extends Component {
                 </div>
                 <div class = "infoContainer">
                     <div class = "infoTitle">
-                        <h2>About COVIDaware</h2>
+                        <h2>Canada</h2>
                     </div>
                     <div class = "mainInfo">
                         <p>Info</p>
@@ -33,4 +33,4 @@ export class About extends Component {
         )
     }
 }
-export default About;
+export default Home;

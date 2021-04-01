@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Form, FormControl, Button, NavDropdown } from 'react-bootstrap';
+import logo from './logo.png';
 
 export class Navigation extends Component {
     render() {
         return (
-        <Navbar bg="light" variant="light">
-            <Navbar.Brand href="/">COVIDaware</Navbar.Brand>
-            <NavDropdown title="Provinces" id="basic-nav-dropdown">
+        <Navbar className = "navBar">
+            <Navbar.Brand href="/"><img className = "logo" src = {logo} alt = "logo"/></Navbar.Brand>
+            <NavDropdown className = "provinceDropdown" title="Provinces" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/Provinces/Alberta">Alberta</NavDropdown.Item>
                 <NavDropdown.Item href="/Provinces/BritishColumbia">British Columbia</NavDropdown.Item>
                 <NavDropdown.Item href="/Provinces/Manitoba">Manitoba</NavDropdown.Item>
