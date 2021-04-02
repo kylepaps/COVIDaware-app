@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
 
 export class Provinces extends Component {
     render() {
@@ -26,8 +27,11 @@ export class Provinces extends Component {
                         <h2>News Updates</h2>
                     </div>
                     <div class = "twitterAPI">
-                        <a class="twitter-timeline" href="https://twitter.com/Covid19_Canada?ref_src=twsrc%5Etfw">Tweets by Covid19_Canada</a> 
-                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        <TwitterTimelineEmbed
+                            sourceType="profile"
+                            screenName="covid_canada"
+                            options={{height: 720}}
+                        />
                     </div>
                 </div>
                 <div class = "infoContainer">

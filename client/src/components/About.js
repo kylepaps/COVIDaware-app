@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
-
+import covidPic from './covidPic.png'
+import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
 
 export class About extends Component {
     render() {
@@ -12,16 +12,24 @@ export class About extends Component {
                         <h2>News Updates</h2>
                     </div>
                     <div class = "twitterAPI">
-                        <a class="twitter-timeline" href="https://twitter.com/Covid19_Canada?ref_src=twsrc%5Etfw">Tweets by Covid19_Canada</a> 
-                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        <TwitterTimelineEmbed
+                            sourceType="profile"
+                            screenName="covid_canada"
+                            options={{height: 720}}
+                        />
                     </div>
                 </div>
                 <div class = "infoContainer">
                     <div class = "infoTitle">
                         <h2>About COVIDaware</h2>
                     </div>
-                    <div class = "mainInfo">
-                        <p>Info</p>
+                    <div class = "mainInfo" id = "aboutInfo">
+                        <p className = "aboutInfo">Since the beginning of the COVID-19 pandemic, information and statistics have been scattered across the internet. This has resulted in the need for a simple website that displays COVID-19 related information in a user friendly manner.</p><br></br>
+                        <p className = "aboutInfo">COVIDaware is an intuitive method for accessing all information regarding COVID-19, in a user-friendly format. All data on the COVIDaware website is from the Canadian government website for COVID-19. The objective of COVIDaware is to create an all inclusive tool to help users develop a deeper understanding of COVID-19 data.</p>
+                        <div className = "COVIDPic">
+                            <img  src = {covidPic} alt = "COVID"/>
+                        </div>
+                        
                     </div>
                 </div>
                 <div class = "footer">
