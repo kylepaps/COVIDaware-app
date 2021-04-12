@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Chart } from "react-google-charts";
 import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
-import data from './Data/covidJSON.json'
 
+//import data from './Data/covidJSON.json'
+/*
 var dateFormat = require("dateformat");
 
 var d7 = dateFormat((new Date(new Date().setDate(new Date().getDate()-7))), "yyyy-mm-dd")
@@ -41,8 +42,60 @@ var c2 = Number(data[d2]['data » total_cases'])
 var dt1 = Number(data[d1]['data » total_fatalities'])
 var r1 = Number(data[d1]['data » total_recoveries'])
 var c1 = Number(data[d1]['data » total_cases'])
+*/
 
+/*
+    <Chart
+        width={500}
+        height={300}
+        chartType="ColumnChart"
+        loader={<div>Loading Chart</div>}
+        data={[
+            ['Date','Case','Death','Recoveries'],
+            [d7, c7,dt7,r7],
+            [d6, c6,dt6,r6],
+            [d5, c5,dt5,r5],
+            [d4, c4,dt4,r4],
+            [d3, c3,dt3,r3],
+            [d2, c2,dt2,r2],
+            [d1, c1,dt1,r1],
+            
+            ]}
+        options={{
+        backgroundColor: "#E0E0E0",
+        title: 'Cases, Fatalities and Recoveries in the past 7 Days',
+        chartArea: { width: '50%' },
+        hAxis: {
+            title: 'Date',
+            minValue: 0,
+        },
+        vAxis: {
+            title: " ",
+        },
+        }}
+        legendToggle
+    />
+*/
 export class Home extends Component {
+    constructor() {
+        super();
+        this.state = {
+            data: [],
+        };
+    }
+
+    componentDidMount() {
+        fetch(`/canada`)
+            .then(res => res.json())
+            .then(findResponse => {
+                console.log(findResponse)
+                this.setState({
+                    data: [findResponse],
+                })
+                
+            });
+    }
+
     render() {
         return (
             <div className = "mainContainer">
@@ -124,36 +177,7 @@ export class Home extends Component {
                             rootProps={{ 'data-testid': '2' }}
                         />
                         <br></br>
-                            <Chart
-                                width={500}
-                                height={300}
-                                chartType="ColumnChart"
-                                loader={<div>Loading Chart</div>}
-                                data={[
-                                    ['Date','Case','Death','Recoveries'],
-                                    [d7, c7,dt7,r7],
-                                    [d6, c6,dt6,r6],
-                                    [d5, c5,dt5,r5],
-                                    [d4, c4,dt4,r4],
-                                    [d3, c3,dt3,r3],
-                                    [d2, c2,dt2,r2],
-                                    [d1, c1,dt1,r1],
-                                    
-                                  ]}
-                                options={{
-                                backgroundColor: "#E0E0E0",
-                                title: 'Cases, Fatalities and Recoveries in the past 7 Days',
-                                chartArea: { width: '50%' },
-                                hAxis: {
-                                    title: 'Date',
-                                    minValue: 0,
-                                },
-                                vAxis: {
-                                    title: " ",
-                                },
-                                }}
-                                legendToggle
-                            />
+
                     </div>
                 </div>
                 <div class = "footer">
