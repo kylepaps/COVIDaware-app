@@ -21,7 +21,7 @@ export class Team extends Component {
                     <div class = "infoTitle">
                         <h2>The COVIDaware Team</h2>
                     </div>
-                    <div class = "mainInfo">
+                    <div class = "mainInfo" id = "teamTable">
                         <table cellspacing = '0'>
                             <thead>
                                 <tr>
