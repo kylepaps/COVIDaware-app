@@ -54,7 +54,7 @@ export class FAQ extends Component {
                 </div>
                 <div class = "footer">
                     <div class = "cp">
-                        <p>Last Updated 2021/04/01<br></br>&copy; COVIDaware</p>
+                        <p>Last Updated 2021/04/16<br></br>&copy; COVIDaware</p>
                     </div>
                 </div>
             </div>

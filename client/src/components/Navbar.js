@@ -29,10 +29,7 @@ export class Navigation extends Component {
                 <Nav.Link href="/About">About</Nav.Link>
                 <Nav.Link href="/Team">Team</Nav.Link>
             </Nav>
-            <Form inline >
-                <FormControl requiredtype="text" placeholder="Search" className="mr-sm-2" />
-                <Button type="submit" variant="outline-primary">Search</Button>
-            </Form>
+        
         </Navbar>
         )
     }

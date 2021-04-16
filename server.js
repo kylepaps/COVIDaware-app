@@ -5,6 +5,6 @@ const port = 5000
 
 const router = require('./routes/routes')
 
-app.use('/', router)
+app.use('/api', router)
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
