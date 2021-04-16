@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 export class Team extends Component {
     render() {
@@ -27,76 +27,87 @@ export class Team extends Component {
                                 <tr>
                                     <th>Team Member</th>
                                     <th>Email</th>
+                                    <th>Github Usernames</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Asad, Asif</td>
+                                    <td>Asif, Asad</td>
                                     <td>asif5080@mylaurier.ca</td>
+                                    <td>Asad-Asif</td>
                                 </tr>
                                 <tr>
                                     <td>Attfield, Evan</td>
                                     <td>att7010@mylaurier.ca</td>
+                                    <td>evan-attf</td>
                                 </tr>
                                 <tr>
                                     <td>Bahia, Ryan</td>
                                     <td>bahi3860@mylaurier.ca</td>
+                                    <td>Ryan-Bahia</td>
                                 </tr>
                                 <tr>
                                     <td>Baig, Ahmar</td>
                                     <td>baig9620@mylaurier.ca</td>
+                                    <td>AhmarBaig</td>
                                 </tr>
                                 <tr>
-                                    <td>Chrisholm, Kevin</td>
-                                    <td>chls7310@mylaurier.ca</td>
+                                    <td>Chisholm, Kevin</td>
+                                    <td>chis7310@mylaurier.ca</td>
+                                    <td>kevinchisholm45</td>
                                 </tr>
                                 <tr>
                                     <td>Grabinski, Bartosz</td>
                                     <td>grab7840@mylaurier.ca</td>
+                                    <td>GrabinskiBart</td>
                                 </tr>
                                 <tr>
                                     <td>Hoang, Alex</td>
                                     <td>hoan5090@mylaurier.ca</td>
+                                    <td>Halex2936</td>
                                 </tr>
                                 <tr>
                                     <td>Kala, Raman</td>
                                     <td>kala9110@mylaurier.ca</td>
+                                    <td>ramankala</td>
                                 </tr>
                                 <tr>
                                     <td>Lall, Maninder</td>
                                     <td>lall9370@mylaurier.ca</td>
+                                    <td>maninder-lall</td>
                                 </tr>
                                 <tr>
                                     <td>Luloff, Zach</td>
                                     <td>lulo9390@mylaurier.ca</td>
+                                    <td>zlu55</td>
                                 </tr>
                                 <tr>
                                     <td>Maynard, Amari</td>
                                     <td>mayn8320@mylaurier.ca</td>
+                                    <td>MalcomMaynard</td>
                                 </tr>
                                 <tr>
                                     <td>Mcleod, Liam</td>
                                     <td>mcle1340@mylaurier.ca</td>
+                                    <td>Liam-McLeod</td>
                                 </tr>
                                 <tr>
                                     <td>Papizewski, Kyle</td>
                                     <td>papi0600@mylaurier.ca</td>
+                                    <td>kylepaps</td>
                                 </tr>
                                 
                                 <tr>
                                     <td>Pattathe, Lakshmi</td>
                                     <td>patt3760@mylaurier.ca</td>
+                                    <td>lakshmipat</td>
                                 </tr>
                                 
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class = "footer">
-                    <div class = "cp">
-                        <p>Last Updated 2021/04/16<br></br>&copy; COVIDaware</p>
-                    </div>
-                </div>
+                
             </div>
         )
     }

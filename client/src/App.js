@@ -10,6 +10,7 @@ import FAQ from './components/FAQ';
 import About from './components/About';
 import Team from './components/Team';
 import Provinces from './components/Provinces';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/About" exact component={About}/>
           <Route path="/Team" exact component={Team} />
           <Route path="/Provinces/:name" exact component={Provinces} />
+          <Route exact component={Footer} />
         </div>
     </Router>
   );

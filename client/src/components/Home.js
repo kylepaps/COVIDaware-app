@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Chart } from "react-google-charts";
-import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 export class Home extends Component {
     constructor() {
         super();
@@ -13,7 +13,6 @@ export class Home extends Component {
         fetch(`/api/canada`)
             .then(res => res.json())
             .then(findResponse => {
-                console.log(findResponse)
                 this.setState({
                     data: [findResponse],
                 })
@@ -36,14 +35,15 @@ export class Home extends Component {
         var cvd = []
         var cr = []
         var cd = []
+        var last_update = ''
         this.state.data.map((item) => {
             item.data.map(i => {
                 darr.push(i.date)
             })
         })
-
-        console.log(darr.length)
-        console.log(len)
+        this.state.data.map((item) => {
+            last_update = item.last_updated
+        })
         
 
         this.state.data.map((item) => {
@@ -156,7 +156,6 @@ export class Home extends Component {
             cct.push(item.data[darr.length-6].change_criticals)
             cct.push(item.data[darr.length-7].change_criticals)
         })
-        console.log(items)
         
         var d1 = items[0]
         var d2 = items[1]
@@ -245,12 +244,13 @@ export class Home extends Component {
         var vacd1 = Number(tvd[0])
         var cc1 = Number(cc[0])
         var chosp1 = Number(ch[0])
-        var ccrit1 = Number(cc[0])
+        var ccrit1 = Number(cct[0])
         var cvd1 = Number(cvd[0])
         var crec1 = Number(cr[0])
         var cfat1 = Number(cd[0])
         
         return (
+
             
             <div className = "mainContainer">
                 <div class = "sideBar">
@@ -270,21 +270,25 @@ export class Home extends Component {
                         <h2>Canada</h2>
                     </div>
                     <div class = "mainInfo">
-                        <h5>Total Number of Cases as of Today: {c1}</h5>
-                        <h5>Total Number of Recoveries as of Today: {r1}</h5>
-                        <h5>Total Number of Deaths as of Today: {dt1}</h5>
-                        <h5></h5>
-                        <h5>Number of New Cases as of Today: {cc1}</h5>
-                        <h5>Number of New Hospitalizations as of Today: {chosp1}</h5>
-                        <h5>Number of New Deaths as of Today: {cfat1}</h5>
-                        <div className = "chart"><h4>Heapmap Of New COVID-19 Cases</h4></div>
+                        <div class="chart">
+                            <h5>Data Last Updated: {last_update}</h5>
+                            <h5>Total Number of Cases as of Today: {c1}</h5>
+                            <h5>Total Number of Recoveries as of Today: {r1}</h5>
+                            <h5>Total Number of Deaths as of Today: {dt1}</h5>
+                            <h5></h5>
+                            <h5>Number of New Cases as of Today: {cc1}</h5>
+                            <h5>Number of New Hospitalizations as of Today: {chosp1}</h5>
+                            <h5>Number of New Deaths as of Today: {cfat1}</h5>
+                        </div>
+                        
+                        <div className = "chart"><h4>Heatmap Of New COVID-19 Cases</h4></div>
                         <div className = "chart">
                             <Chart className = "firstChart"
                                 width={'900px'}
                                 height={'600px'}
                                 chartType="GeoChart"
                                 data={[
-                                    ['Country', 'Province',   'Total Cases'],
+                                    ['Country', 'Province', 'New Cases'],
                                     ['CA-ON','ON', 4812],
                                     ['CA-NB','NB', 8],
                                     ['CA-BC','BC', 1205], 
@@ -324,14 +328,14 @@ export class Home extends Component {
                                     ['Canadaian Regions', 'Total Covid Cases'],
                                     ['Ontario', 403571],
                                     ['New Brunswick', 1760],
-                                    ['Manatoba', 35688],
+                                    ['Manitoba', 35688],
                                     ['Yukon', 76],
                                     ['Prince Edward', 167],
                                     ['Nova Scotia', 1786],
                                     ['Alberta', 166177],
                                     ['NewFoundLand', 1036],
                                     ['Nunavut', 396],
-                                    ['Sasksatoon', 37384],
+                                    ['Saskatchewan', 37384],
                                     ['North West Territories', 7],
                                     ['Quebec',332544],
                                     ['British Columbia', 116075],
@@ -365,7 +369,7 @@ export class Home extends Component {
                                     ]}
                                     options={{
                                     backgroundColor: "#E0E0E0",
-                                    title: 'Cases, Fatalities and Recoveries in the past 7 Days',
+                                    title: 'Total Cases, Fatalities and Recoveries in the past 7 Days',
                                     chartArea: { width: '50%' },
                                     hAxis: {
                                         title: 'Date',
@@ -400,7 +404,7 @@ export class Home extends Component {
                                         backgroundColor: "#E0E0E0",
                                         title: "Total Cases in the Past 7 Days",
                                         hAxis: {
-                                        title: 'Days',
+                                        title: 'Date',
                                         },
                                         vAxis: {
                                         title: 'Cases',
@@ -417,7 +421,7 @@ export class Home extends Component {
                                     chartType="LineChart"
                                     loader={<div>Loading Chart</div>}
                                     data={[
-                                        ['x', 'Vacinations', 'Vacinated'],
+                                        ['x', 'Vaccine Supply', 'Vaccinated'],
                                         [d7, vac7, vacd7],
                                         [d6, vac6, vacd6],
                                         [d5, vac5, vacd5],
@@ -429,7 +433,7 @@ export class Home extends Component {
                                     ]}
                                     options={{
                                         backgroundColor: "#E0E0E0",
-                                        title: "Number of vacines vs vacinated in the Past 7 Days",
+                                        title: "Number of vaccines vs vaccinated in the Past 7 Days",
                                         hAxis: {
                                         title: 'Date',
                                         },
@@ -495,6 +499,7 @@ export class Home extends Component {
                                         backgroundColor: "#E0E0E0",
                                         title: "Changes in Hospitalizations and Criticals in the Past 7 Days",
                                         vAxis: { title: 'Number of Patients' },
+                                        hAxis: { title: 'Date'},
                                         isStacked: true,
                                     }}
                                     rootProps={{ 'data-testid': '1' }}
@@ -551,24 +556,19 @@ export class Home extends Component {
                                     ]}
                                     options={{
                                         backgroundColor: "#E0E0E0",
-                                        title: 'Hospitalizations VS Recoveries',
+                                        title: 'Hospitalizations vs. Recoveries',
                                         hAxis: { title: 'Date', titleTextStyle: { color: '#333' } },
                                         vAxis: { minValue: 0 },
                                         // For the legend to fit, we make the chart area smaller
                                         chartArea: { width: '50%', height: '70%' },
-                                        // lineWidth: 25
                                     }}
-                                    // For tests
-                                    rootProps={{ 'data-testid': '1' }}
+                
+                                   rootProps={{ 'data-testid': '1' }}
                                     />
                             </div>
                     </div>
                 </div>
-                <div class = "footer">
-                    <div class = "cp">
-                        <p>Last Updated 2021/04/17<br></br>&copy; COVIDaware</p>
-                    </div>
-                </div>
+                
             </div>
         )
     }
