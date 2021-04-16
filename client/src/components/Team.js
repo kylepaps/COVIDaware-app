@@ -38,7 +38,7 @@ export class Team extends Component {
                                 </tr>
                                 <tr>
                                     <td>Attfield, Evan</td>
-                                    <td>att7010@mylaurier.ca</td>
+                                    <td>attf7010@mylaurier.ca</td>
                                     <td>evan-attf</td>
                                 </tr>
                                 <tr>
